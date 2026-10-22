@@ -49,8 +49,6 @@ import { Route as ApiPublicWhatsappWebhookRouteImport } from './routes/api/publi
 import { Route as ColetaAceiteTokenIndexRouteImport } from './routes/coleta.aceite.$token.index'
 import { Route as ColetaAceiteTokenReciboRouteImport } from './routes/coleta.aceite.$token.recibo'
 import { Route as ColetaAceiteTokenValorRouteImport } from './routes/coleta.aceite.$token.valor'
-import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
-import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -259,16 +257,6 @@ const ColetaAceiteTokenValorRoute = ColetaAceiteTokenValorRouteImport.update({
   path: '/coleta/aceite/$token/valor',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
-  id: '/lovable/email/auth/preview',
-  path: '/lovable/email/auth/preview',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LovableEmailAuthWebhookRoute = LovableEmailAuthWebhookRouteImport.update({
-  id: '/lovable/email/auth/webhook',
-  path: '/lovable/email/auth/webhook',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -310,8 +298,6 @@ export interface FileRoutesByFullPath {
   '/api/public/whatsapp/webhook': typeof ApiPublicWhatsappWebhookRoute
   '/coleta/aceite/$token/recibo': typeof ColetaAceiteTokenReciboRoute
   '/coleta/aceite/$token/valor': typeof ColetaAceiteTokenValorRoute
-  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
-  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
   '/coleta/aceite/$token/': typeof ColetaAceiteTokenIndexRoute
 }
 export interface FileRoutesByTo {
@@ -352,8 +338,6 @@ export interface FileRoutesByTo {
   '/api/public/whatsapp/webhook': typeof ApiPublicWhatsappWebhookRoute
   '/coleta/aceite/$token/recibo': typeof ColetaAceiteTokenReciboRoute
   '/coleta/aceite/$token/valor': typeof ColetaAceiteTokenValorRoute
-  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
-  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
   '/coleta/aceite/$token': typeof ColetaAceiteTokenIndexRoute
 }
 export interface FileRoutesById {
@@ -397,8 +381,6 @@ export interface FileRoutesById {
   '/api/public/whatsapp/webhook': typeof ApiPublicWhatsappWebhookRoute
   '/coleta/aceite/$token/recibo': typeof ColetaAceiteTokenReciboRoute
   '/coleta/aceite/$token/valor': typeof ColetaAceiteTokenValorRoute
-  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
-  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
   '/coleta/aceite/$token/': typeof ColetaAceiteTokenIndexRoute
 }
 export interface FileRouteTypes {
@@ -443,8 +425,6 @@ export interface FileRouteTypes {
     | '/api/public/whatsapp/webhook'
     | '/coleta/aceite/$token/recibo'
     | '/coleta/aceite/$token/valor'
-    | '/lovable/email/auth/preview'
-    | '/lovable/email/auth/webhook'
     | '/coleta/aceite/$token/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -485,8 +465,6 @@ export interface FileRouteTypes {
     | '/api/public/whatsapp/webhook'
     | '/coleta/aceite/$token/recibo'
     | '/coleta/aceite/$token/valor'
-    | '/lovable/email/auth/preview'
-    | '/lovable/email/auth/webhook'
     | '/coleta/aceite/$token'
   id:
     | '__root__'
@@ -529,8 +507,6 @@ export interface FileRouteTypes {
     | '/api/public/whatsapp/webhook'
     | '/coleta/aceite/$token/recibo'
     | '/coleta/aceite/$token/valor'
-    | '/lovable/email/auth/preview'
-    | '/lovable/email/auth/webhook'
     | '/coleta/aceite/$token/'
   fileRoutesById: FileRoutesById
 }
@@ -568,8 +544,6 @@ export interface RootRouteChildren {
   ApiPublicWhatsappWebhookRoute: typeof ApiPublicWhatsappWebhookRoute
   ColetaAceiteTokenReciboRoute: typeof ColetaAceiteTokenReciboRoute
   ColetaAceiteTokenValorRoute: typeof ColetaAceiteTokenValorRoute
-  LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
-  LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
   ColetaAceiteTokenIndexRoute: typeof ColetaAceiteTokenIndexRoute
 }
 
@@ -855,20 +829,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ColetaAceiteTokenValorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/lovable/email/auth/preview': {
-      id: '/lovable/email/auth/preview'
-      path: '/lovable/email/auth/preview'
-      fullPath: '/lovable/email/auth/preview'
-      preLoaderRoute: typeof LovableEmailAuthPreviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lovable/email/auth/webhook': {
-      id: '/lovable/email/auth/webhook'
-      path: '/lovable/email/auth/webhook'
-      fullPath: '/lovable/email/auth/webhook'
-      preLoaderRoute: typeof LovableEmailAuthWebhookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -938,8 +898,6 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicWhatsappWebhookRoute: ApiPublicWhatsappWebhookRoute,
   ColetaAceiteTokenReciboRoute: ColetaAceiteTokenReciboRoute,
   ColetaAceiteTokenValorRoute: ColetaAceiteTokenValorRoute,
-  LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
-  LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,
   ColetaAceiteTokenIndexRoute: ColetaAceiteTokenIndexRoute,
 }
 export const routeTree = rootRouteImport
