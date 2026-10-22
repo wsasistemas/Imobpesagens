@@ -9,87 +9,52 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TreinamentoRouteImport } from './routes/treinamento'
-import { Route as RedefinirSenhaRouteImport } from './routes/redefinir-senha'
-import { Route as PesagemRouteImport } from './routes/pesagem'
-import { Route as MeuPerfilRouteImport } from './routes/meu-perfil'
-import { Route as McpRouteImport } from './routes/mcp'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
-import { Route as ConectarAssistenteRouteImport } from './routes/conectar-assistente'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as DocumentacaoRouteRouteImport } from './routes/documentacao/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as WhatsappIndexRouteImport } from './routes/whatsapp.index'
-import { Route as TreinamentoIndexRouteImport } from './routes/treinamento.index'
-import { Route as SucataIndexRouteImport } from './routes/sucata.index'
-import { Route as DocumentacaoIndexRouteImport } from './routes/documentacao/index'
-import { Route as TreinamentoSucataRouteImport } from './routes/treinamento.sucata'
-import { Route as SucataResumoRouteImport } from './routes/sucata.resumo'
-import { Route as SucataCadastrosRouteImport } from './routes/sucata.cadastros'
-import { Route as RelatoriosOcorrenciasRouteImport } from './routes/relatorios.ocorrencias'
-import { Route as DocumentacaoSucataRouteImport } from './routes/documentacao/sucata'
-import { Route as DocumentacaoConfiguracoesRouteImport } from './routes/documentacao/configuracoes'
-import { Route as DocumentacaoArquiteturaRouteImport } from './routes/documentacao/arquitetura'
-import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ConectarAssistenteRouteImport } from './routes/conectar-assistente'
+import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DocumentacaoRouteRouteImport } from './routes/documentacao/route'
+import { Route as McpRouteImport } from './routes/mcp'
+import { Route as MeuPerfilRouteImport } from './routes/meu-perfil'
+import { Route as PesagemRouteImport } from './routes/pesagem'
+import { Route as RedefinirSenhaRouteImport } from './routes/redefinir-senha'
+import { Route as TreinamentoRouteImport } from './routes/treinamento'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
-import { Route as SucataIdIndexRouteImport } from './routes/sucata.$id.index'
-import { Route as SucataIdRelatorioRouteImport } from './routes/sucata.$id.relatorio'
-import { Route as SucataIdNotificarRouteImport } from './routes/sucata.$id.notificar'
-import { Route as SucataIdNfaRouteImport } from './routes/sucata.$id.nfa'
-import { Route as SucataIdEvidenciasRouteImport } from './routes/sucata.$id.evidencias'
-import { Route as SucataIdConferenciaRouteImport } from './routes/sucata.$id.conferencia'
-import { Route as ApiPublicVarreduraDistnsuRouteImport } from './routes/api/public/varredura-distnsu'
-import { Route as ApiPublicSucataReenvioRouteImport } from './routes/api/public/sucata-reenvio'
-import { Route as ApiPublicColetaRouteImport } from './routes/api/public/coleta'
-import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as DocumentacaoIndexRouteImport } from './routes/documentacao/index'
+import { Route as DocumentacaoArquiteturaRouteImport } from './routes/documentacao/arquitetura'
+import { Route as DocumentacaoConfiguracoesRouteImport } from './routes/documentacao/configuracoes'
+import { Route as DocumentacaoSucataRouteImport } from './routes/documentacao/sucata'
+import { Route as RelatoriosOcorrenciasRouteImport } from './routes/relatorios.ocorrencias'
+import { Route as SucataIndexRouteImport } from './routes/sucata.index'
+import { Route as SucataCadastrosRouteImport } from './routes/sucata.cadastros'
+import { Route as SucataResumoRouteImport } from './routes/sucata.resumo'
+import { Route as TreinamentoIndexRouteImport } from './routes/treinamento.index'
+import { Route as TreinamentoSucataRouteImport } from './routes/treinamento.sucata'
+import { Route as WhatsappIndexRouteImport } from './routes/whatsapp.index'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
-import { Route as ColetaAceiteTokenIndexRouteImport } from './routes/coleta.aceite.$token.index'
-import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
-import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
-import { Route as ColetaAceiteTokenValorRouteImport } from './routes/coleta.aceite.$token.valor'
-import { Route as ColetaAceiteTokenReciboRouteImport } from './routes/coleta.aceite.$token.recibo'
-import { Route as ApiPublicWhatsappWebhookRouteImport } from './routes/api/public/whatsapp.webhook'
+import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
+import { Route as ApiPublicColetaRouteImport } from './routes/api/public/coleta'
+import { Route as ApiPublicSucataReenvioRouteImport } from './routes/api/public/sucata-reenvio'
+import { Route as ApiPublicVarreduraDistnsuRouteImport } from './routes/api/public/varredura-distnsu'
+import { Route as SucataIdIndexRouteImport } from './routes/sucata.$id.index'
+import { Route as SucataIdConferenciaRouteImport } from './routes/sucata.$id.conferencia'
+import { Route as SucataIdEvidenciasRouteImport } from './routes/sucata.$id.evidencias'
+import { Route as SucataIdNfaRouteImport } from './routes/sucata.$id.nfa'
+import { Route as SucataIdNotificarRouteImport } from './routes/sucata.$id.notificar'
+import { Route as SucataIdRelatorioRouteImport } from './routes/sucata.$id.relatorio'
 import { Route as ApiPublicWhatsappMetaWebhookRouteImport } from './routes/api/public/whatsapp.meta-webhook'
+import { Route as ApiPublicWhatsappWebhookRouteImport } from './routes/api/public/whatsapp.webhook'
+import { Route as ColetaAceiteTokenIndexRouteImport } from './routes/coleta.aceite.$token.index'
+import { Route as ColetaAceiteTokenReciboRouteImport } from './routes/coleta.aceite.$token.recibo'
+import { Route as ColetaAceiteTokenValorRouteImport } from './routes/coleta.aceite.$token.valor'
+import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
+import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
 
-const TreinamentoRoute = TreinamentoRouteImport.update({
-  id: '/treinamento',
-  path: '/treinamento',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RedefinirSenhaRoute = RedefinirSenhaRouteImport.update({
-  id: '/redefinir-senha',
-  path: '/redefinir-senha',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PesagemRoute = PesagemRouteImport.update({
-  id: '/pesagem',
-  path: '/pesagem',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MeuPerfilRoute = MeuPerfilRouteImport.update({
-  id: '/meu-perfil',
-  path: '/meu-perfil',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const McpRoute = McpRouteImport.update({
-  id: '/mcp',
-  path: '/mcp',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConfiguracoesRoute = ConfiguracoesRouteImport.update({
-  id: '/configuracoes',
-  path: '/configuracoes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConectarAssistenteRoute = ConectarAssistenteRouteImport.update({
-  id: '/conectar-assistente',
-  path: '/conectar-assistente',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -97,59 +62,71 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConectarAssistenteRoute = ConectarAssistenteRouteImport.update({
+  id: '/conectar-assistente',
+  path: '/conectar-assistente',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfiguracoesRoute = ConfiguracoesRouteImport.update({
+  id: '/configuracoes',
+  path: '/configuracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DocumentacaoRouteRoute = DocumentacaoRouteRouteImport.update({
   id: '/documentacao',
   path: '/documentacao',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WhatsappIndexRoute = WhatsappIndexRouteImport.update({
-  id: '/whatsapp/',
-  path: '/whatsapp/',
+const MeuPerfilRoute = MeuPerfilRouteImport.update({
+  id: '/meu-perfil',
+  path: '/meu-perfil',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TreinamentoIndexRoute = TreinamentoIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => TreinamentoRoute,
-} as any)
-const SucataIndexRoute = SucataIndexRouteImport.update({
-  id: '/sucata/',
-  path: '/sucata/',
+const PesagemRoute = PesagemRouteImport.update({
+  id: '/pesagem',
+  path: '/pesagem',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RedefinirSenhaRoute = RedefinirSenhaRouteImport.update({
+  id: '/redefinir-senha',
+  path: '/redefinir-senha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TreinamentoRoute = TreinamentoRouteImport.update({
+  id: '/treinamento',
+  path: '/treinamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Char91DotmcpChar93ListToolsRoute =
+  Char91DotmcpChar93ListToolsRouteImport.update({
+    id: '/.mcp/list-tools',
+    path: '/.mcp/list-tools',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DocumentacaoIndexRoute = DocumentacaoIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DocumentacaoRouteRoute,
 } as any)
-const TreinamentoSucataRoute = TreinamentoSucataRouteImport.update({
-  id: '/sucata',
-  path: '/sucata',
-  getParentRoute: () => TreinamentoRoute,
-} as any)
-const SucataResumoRoute = SucataResumoRouteImport.update({
-  id: '/sucata/resumo',
-  path: '/sucata/resumo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SucataCadastrosRoute = SucataCadastrosRouteImport.update({
-  id: '/sucata/cadastros',
-  path: '/sucata/cadastros',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RelatoriosOcorrenciasRoute = RelatoriosOcorrenciasRouteImport.update({
-  id: '/relatorios/ocorrencias',
-  path: '/relatorios/ocorrencias',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DocumentacaoSucataRoute = DocumentacaoSucataRouteImport.update({
-  id: '/sucata',
-  path: '/sucata',
+const DocumentacaoArquiteturaRoute = DocumentacaoArquiteturaRouteImport.update({
+  id: '/arquitetura',
+  path: '/arquitetura',
   getParentRoute: () => DocumentacaoRouteRoute,
 } as any)
 const DocumentacaoConfiguracoesRoute =
@@ -158,67 +135,49 @@ const DocumentacaoConfiguracoesRoute =
     path: '/configuracoes',
     getParentRoute: () => DocumentacaoRouteRoute,
   } as any)
-const DocumentacaoArquiteturaRoute = DocumentacaoArquiteturaRouteImport.update({
-  id: '/arquitetura',
-  path: '/arquitetura',
+const DocumentacaoSucataRoute = DocumentacaoSucataRouteImport.update({
+  id: '/sucata',
+  path: '/sucata',
   getParentRoute: () => DocumentacaoRouteRoute,
 } as any)
-const Char91DotwellKnownChar93OauthProtectedResourceRoute =
-  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
-    id: '/.well-known/oauth-protected-resource',
-    path: '/.well-known/oauth-protected-resource',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Char91DotmcpChar93ListToolsRoute =
-  Char91DotmcpChar93ListToolsRouteImport.update({
-    id: '/.mcp/list-tools',
-    path: '/.mcp/list-tools',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const SucataIdIndexRoute = SucataIdIndexRouteImport.update({
-  id: '/sucata/$id/',
-  path: '/sucata/$id/',
+const RelatoriosOcorrenciasRoute = RelatoriosOcorrenciasRouteImport.update({
+  id: '/relatorios/ocorrencias',
+  path: '/relatorios/ocorrencias',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SucataIdRelatorioRoute = SucataIdRelatorioRouteImport.update({
-  id: '/sucata/$id/relatorio',
-  path: '/sucata/$id/relatorio',
+const SucataIndexRoute = SucataIndexRouteImport.update({
+  id: '/sucata/',
+  path: '/sucata/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SucataIdNotificarRoute = SucataIdNotificarRouteImport.update({
-  id: '/sucata/$id/notificar',
-  path: '/sucata/$id/notificar',
+const SucataCadastrosRoute = SucataCadastrosRouteImport.update({
+  id: '/sucata/cadastros',
+  path: '/sucata/cadastros',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SucataIdNfaRoute = SucataIdNfaRouteImport.update({
-  id: '/sucata/$id/nfa',
-  path: '/sucata/$id/nfa',
+const SucataResumoRoute = SucataResumoRouteImport.update({
+  id: '/sucata/resumo',
+  path: '/sucata/resumo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SucataIdEvidenciasRoute = SucataIdEvidenciasRouteImport.update({
-  id: '/sucata/$id/evidencias',
-  path: '/sucata/$id/evidencias',
+const TreinamentoIndexRoute = TreinamentoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TreinamentoRoute,
+} as any)
+const TreinamentoSucataRoute = TreinamentoSucataRouteImport.update({
+  id: '/sucata',
+  path: '/sucata',
+  getParentRoute: () => TreinamentoRoute,
+} as any)
+const WhatsappIndexRoute = WhatsappIndexRouteImport.update({
+  id: '/whatsapp/',
+  path: '/whatsapp/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SucataIdConferenciaRoute = SucataIdConferenciaRouteImport.update({
-  id: '/sucata/$id/conferencia',
-  path: '/sucata/$id/conferencia',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicVarreduraDistnsuRoute =
-  ApiPublicVarreduraDistnsuRouteImport.update({
-    id: '/api/public/varredura-distnsu',
-    path: '/api/public/varredura-distnsu',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiPublicSucataReenvioRoute = ApiPublicSucataReenvioRouteImport.update({
-  id: '/api/public/sucata-reenvio',
-  path: '/api/public/sucata-reenvio',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicColetaRoute = ApiPublicColetaRouteImport.update({
-  id: '/api/public/coleta',
-  path: '/api/public/coleta',
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Char91DotmcpChar93InvokeToolToolRoute =
@@ -227,29 +186,67 @@ const Char91DotmcpChar93InvokeToolToolRoute =
     path: '/.mcp/invoke-tool/$tool',
     getParentRoute: () => rootRouteImport,
   } as any)
-const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
-  id: '/.lovable/oauth/consent',
-  path: '/.lovable/oauth/consent',
+const ApiPublicColetaRoute = ApiPublicColetaRouteImport.update({
+  id: '/api/public/coleta',
+  path: '/api/public/coleta',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicSucataReenvioRoute = ApiPublicSucataReenvioRouteImport.update({
+  id: '/api/public/sucata-reenvio',
+  path: '/api/public/sucata-reenvio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicVarreduraDistnsuRoute =
+  ApiPublicVarreduraDistnsuRouteImport.update({
+    id: '/api/public/varredura-distnsu',
+    path: '/api/public/varredura-distnsu',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SucataIdIndexRoute = SucataIdIndexRouteImport.update({
+  id: '/sucata/$id/',
+  path: '/sucata/$id/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SucataIdConferenciaRoute = SucataIdConferenciaRouteImport.update({
+  id: '/sucata/$id/conferencia',
+  path: '/sucata/$id/conferencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SucataIdEvidenciasRoute = SucataIdEvidenciasRouteImport.update({
+  id: '/sucata/$id/evidencias',
+  path: '/sucata/$id/evidencias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SucataIdNfaRoute = SucataIdNfaRouteImport.update({
+  id: '/sucata/$id/nfa',
+  path: '/sucata/$id/nfa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SucataIdNotificarRoute = SucataIdNotificarRouteImport.update({
+  id: '/sucata/$id/notificar',
+  path: '/sucata/$id/notificar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SucataIdRelatorioRoute = SucataIdRelatorioRouteImport.update({
+  id: '/sucata/$id/relatorio',
+  path: '/sucata/$id/relatorio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicWhatsappMetaWebhookRoute =
+  ApiPublicWhatsappMetaWebhookRouteImport.update({
+    id: '/api/public/whatsapp/meta-webhook',
+    path: '/api/public/whatsapp/meta-webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicWhatsappWebhookRoute =
+  ApiPublicWhatsappWebhookRouteImport.update({
+    id: '/api/public/whatsapp/webhook',
+    path: '/api/public/whatsapp/webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ColetaAceiteTokenIndexRoute = ColetaAceiteTokenIndexRouteImport.update({
   id: '/coleta/aceite/$token/',
   path: '/coleta/aceite/$token/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LovableEmailAuthWebhookRoute = LovableEmailAuthWebhookRouteImport.update({
-  id: '/lovable/email/auth/webhook',
-  path: '/lovable/email/auth/webhook',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
-  id: '/lovable/email/auth/preview',
-  path: '/lovable/email/auth/preview',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ColetaAceiteTokenValorRoute = ColetaAceiteTokenValorRouteImport.update({
-  id: '/coleta/aceite/$token/valor',
-  path: '/coleta/aceite/$token/valor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ColetaAceiteTokenReciboRoute = ColetaAceiteTokenReciboRouteImport.update({
@@ -257,18 +254,21 @@ const ColetaAceiteTokenReciboRoute = ColetaAceiteTokenReciboRouteImport.update({
   path: '/coleta/aceite/$token/recibo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicWhatsappWebhookRoute =
-  ApiPublicWhatsappWebhookRouteImport.update({
-    id: '/api/public/whatsapp/webhook',
-    path: '/api/public/whatsapp/webhook',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiPublicWhatsappMetaWebhookRoute =
-  ApiPublicWhatsappMetaWebhookRouteImport.update({
-    id: '/api/public/whatsapp/meta-webhook',
-    path: '/api/public/whatsapp/meta-webhook',
-    getParentRoute: () => rootRouteImport,
-  } as any)
+const ColetaAceiteTokenValorRoute = ColetaAceiteTokenValorRouteImport.update({
+  id: '/coleta/aceite/$token/valor',
+  path: '/coleta/aceite/$token/valor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
+  id: '/lovable/email/auth/preview',
+  path: '/lovable/email/auth/preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LovableEmailAuthWebhookRoute = LovableEmailAuthWebhookRouteImport.update({
+  id: '/lovable/email/auth/webhook',
+  path: '/lovable/email/auth/webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -575,60 +575,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/treinamento': {
-      id: '/treinamento'
-      path: '/treinamento'
-      fullPath: '/treinamento'
-      preLoaderRoute: typeof TreinamentoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/redefinir-senha': {
-      id: '/redefinir-senha'
-      path: '/redefinir-senha'
-      fullPath: '/redefinir-senha'
-      preLoaderRoute: typeof RedefinirSenhaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pesagem': {
-      id: '/pesagem'
-      path: '/pesagem'
-      fullPath: '/pesagem'
-      preLoaderRoute: typeof PesagemRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/meu-perfil': {
-      id: '/meu-perfil'
-      path: '/meu-perfil'
-      fullPath: '/meu-perfil'
-      preLoaderRoute: typeof MeuPerfilRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mcp': {
-      id: '/mcp'
-      path: '/mcp'
-      fullPath: '/mcp'
-      preLoaderRoute: typeof McpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/configuracoes': {
-      id: '/configuracoes'
-      path: '/configuracoes'
-      fullPath: '/configuracoes'
-      preLoaderRoute: typeof ConfiguracoesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/conectar-assistente': {
-      id: '/conectar-assistente'
-      path: '/conectar-assistente'
-      fullPath: '/conectar-assistente'
-      preLoaderRoute: typeof ConectarAssistenteRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -638,6 +589,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conectar-assistente': {
+      id: '/conectar-assistente'
+      path: '/conectar-assistente'
+      fullPath: '/conectar-assistente'
+      preLoaderRoute: typeof ConectarAssistenteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/configuracoes': {
+      id: '/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/configuracoes'
+      preLoaderRoute: typeof ConfiguracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/documentacao': {
       id: '/documentacao'
       path: '/documentacao'
@@ -645,95 +617,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocumentacaoRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/whatsapp/': {
-      id: '/whatsapp/'
-      path: '/whatsapp'
-      fullPath: '/whatsapp/'
-      preLoaderRoute: typeof WhatsappIndexRouteImport
+    '/meu-perfil': {
+      id: '/meu-perfil'
+      path: '/meu-perfil'
+      fullPath: '/meu-perfil'
+      preLoaderRoute: typeof MeuPerfilRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/treinamento/': {
-      id: '/treinamento/'
-      path: '/'
-      fullPath: '/treinamento/'
-      preLoaderRoute: typeof TreinamentoIndexRouteImport
-      parentRoute: typeof TreinamentoRoute
-    }
-    '/sucata/': {
-      id: '/sucata/'
-      path: '/sucata'
-      fullPath: '/sucata/'
-      preLoaderRoute: typeof SucataIndexRouteImport
+    '/pesagem': {
+      id: '/pesagem'
+      path: '/pesagem'
+      fullPath: '/pesagem'
+      preLoaderRoute: typeof PesagemRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/documentacao/': {
-      id: '/documentacao/'
-      path: '/'
-      fullPath: '/documentacao/'
-      preLoaderRoute: typeof DocumentacaoIndexRouteImport
-      parentRoute: typeof DocumentacaoRouteRoute
-    }
-    '/treinamento/sucata': {
-      id: '/treinamento/sucata'
-      path: '/sucata'
-      fullPath: '/treinamento/sucata'
-      preLoaderRoute: typeof TreinamentoSucataRouteImport
-      parentRoute: typeof TreinamentoRoute
-    }
-    '/sucata/resumo': {
-      id: '/sucata/resumo'
-      path: '/sucata/resumo'
-      fullPath: '/sucata/resumo'
-      preLoaderRoute: typeof SucataResumoRouteImport
+    '/redefinir-senha': {
+      id: '/redefinir-senha'
+      path: '/redefinir-senha'
+      fullPath: '/redefinir-senha'
+      preLoaderRoute: typeof RedefinirSenhaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sucata/cadastros': {
-      id: '/sucata/cadastros'
-      path: '/sucata/cadastros'
-      fullPath: '/sucata/cadastros'
-      preLoaderRoute: typeof SucataCadastrosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/relatorios/ocorrencias': {
-      id: '/relatorios/ocorrencias'
-      path: '/relatorios/ocorrencias'
-      fullPath: '/relatorios/ocorrencias'
-      preLoaderRoute: typeof RelatoriosOcorrenciasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/documentacao/sucata': {
-      id: '/documentacao/sucata'
-      path: '/sucata'
-      fullPath: '/documentacao/sucata'
-      preLoaderRoute: typeof DocumentacaoSucataRouteImport
-      parentRoute: typeof DocumentacaoRouteRoute
-    }
-    '/documentacao/configuracoes': {
-      id: '/documentacao/configuracoes'
-      path: '/configuracoes'
-      fullPath: '/documentacao/configuracoes'
-      preLoaderRoute: typeof DocumentacaoConfiguracoesRouteImport
-      parentRoute: typeof DocumentacaoRouteRoute
-    }
-    '/documentacao/arquitetura': {
-      id: '/documentacao/arquitetura'
-      path: '/arquitetura'
-      fullPath: '/documentacao/arquitetura'
-      preLoaderRoute: typeof DocumentacaoArquiteturaRouteImport
-      parentRoute: typeof DocumentacaoRouteRoute
-    }
-    '/.well-known/oauth-protected-resource': {
-      id: '/.well-known/oauth-protected-resource'
-      path: '/.well-known/oauth-protected-resource'
-      fullPath: '/.well-known/oauth-protected-resource'
-      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+    '/treinamento': {
+      id: '/treinamento'
+      path: '/treinamento'
+      fullPath: '/treinamento'
+      preLoaderRoute: typeof TreinamentoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/.mcp/list-tools': {
@@ -743,74 +659,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sucata/$id/': {
-      id: '/sucata/$id/'
-      path: '/sucata/$id'
-      fullPath: '/sucata/$id/'
-      preLoaderRoute: typeof SucataIdIndexRouteImport
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sucata/$id/relatorio': {
-      id: '/sucata/$id/relatorio'
-      path: '/sucata/$id/relatorio'
-      fullPath: '/sucata/$id/relatorio'
-      preLoaderRoute: typeof SucataIdRelatorioRouteImport
+    '/documentacao/': {
+      id: '/documentacao/'
+      path: '/'
+      fullPath: '/documentacao/'
+      preLoaderRoute: typeof DocumentacaoIndexRouteImport
+      parentRoute: typeof DocumentacaoRouteRoute
+    }
+    '/documentacao/arquitetura': {
+      id: '/documentacao/arquitetura'
+      path: '/arquitetura'
+      fullPath: '/documentacao/arquitetura'
+      preLoaderRoute: typeof DocumentacaoArquiteturaRouteImport
+      parentRoute: typeof DocumentacaoRouteRoute
+    }
+    '/documentacao/configuracoes': {
+      id: '/documentacao/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/documentacao/configuracoes'
+      preLoaderRoute: typeof DocumentacaoConfiguracoesRouteImport
+      parentRoute: typeof DocumentacaoRouteRoute
+    }
+    '/documentacao/sucata': {
+      id: '/documentacao/sucata'
+      path: '/sucata'
+      fullPath: '/documentacao/sucata'
+      preLoaderRoute: typeof DocumentacaoSucataRouteImport
+      parentRoute: typeof DocumentacaoRouteRoute
+    }
+    '/relatorios/ocorrencias': {
+      id: '/relatorios/ocorrencias'
+      path: '/relatorios/ocorrencias'
+      fullPath: '/relatorios/ocorrencias'
+      preLoaderRoute: typeof RelatoriosOcorrenciasRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sucata/$id/notificar': {
-      id: '/sucata/$id/notificar'
-      path: '/sucata/$id/notificar'
-      fullPath: '/sucata/$id/notificar'
-      preLoaderRoute: typeof SucataIdNotificarRouteImport
+    '/sucata/': {
+      id: '/sucata/'
+      path: '/sucata'
+      fullPath: '/sucata/'
+      preLoaderRoute: typeof SucataIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sucata/$id/nfa': {
-      id: '/sucata/$id/nfa'
-      path: '/sucata/$id/nfa'
-      fullPath: '/sucata/$id/nfa'
-      preLoaderRoute: typeof SucataIdNfaRouteImport
+    '/sucata/cadastros': {
+      id: '/sucata/cadastros'
+      path: '/sucata/cadastros'
+      fullPath: '/sucata/cadastros'
+      preLoaderRoute: typeof SucataCadastrosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sucata/$id/evidencias': {
-      id: '/sucata/$id/evidencias'
-      path: '/sucata/$id/evidencias'
-      fullPath: '/sucata/$id/evidencias'
-      preLoaderRoute: typeof SucataIdEvidenciasRouteImport
+    '/sucata/resumo': {
+      id: '/sucata/resumo'
+      path: '/sucata/resumo'
+      fullPath: '/sucata/resumo'
+      preLoaderRoute: typeof SucataResumoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sucata/$id/conferencia': {
-      id: '/sucata/$id/conferencia'
-      path: '/sucata/$id/conferencia'
-      fullPath: '/sucata/$id/conferencia'
-      preLoaderRoute: typeof SucataIdConferenciaRouteImport
-      parentRoute: typeof rootRouteImport
+    '/treinamento/': {
+      id: '/treinamento/'
+      path: '/'
+      fullPath: '/treinamento/'
+      preLoaderRoute: typeof TreinamentoIndexRouteImport
+      parentRoute: typeof TreinamentoRoute
     }
-    '/api/public/varredura-distnsu': {
-      id: '/api/public/varredura-distnsu'
-      path: '/api/public/varredura-distnsu'
-      fullPath: '/api/public/varredura-distnsu'
-      preLoaderRoute: typeof ApiPublicVarreduraDistnsuRouteImport
-      parentRoute: typeof rootRouteImport
+    '/treinamento/sucata': {
+      id: '/treinamento/sucata'
+      path: '/sucata'
+      fullPath: '/treinamento/sucata'
+      preLoaderRoute: typeof TreinamentoSucataRouteImport
+      parentRoute: typeof TreinamentoRoute
     }
-    '/api/public/sucata-reenvio': {
-      id: '/api/public/sucata-reenvio'
-      path: '/api/public/sucata-reenvio'
-      fullPath: '/api/public/sucata-reenvio'
-      preLoaderRoute: typeof ApiPublicSucataReenvioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/coleta': {
-      id: '/api/public/coleta'
-      path: '/api/public/coleta'
-      fullPath: '/api/public/coleta'
-      preLoaderRoute: typeof ApiPublicColetaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/.mcp/invoke-tool/$tool': {
-      id: '/.mcp/invoke-tool/$tool'
-      path: '/.mcp/invoke-tool/$tool'
-      fullPath: '/.mcp/invoke-tool/$tool'
-      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
+    '/whatsapp/': {
+      id: '/whatsapp/'
+      path: '/whatsapp'
+      fullPath: '/whatsapp/'
+      preLoaderRoute: typeof WhatsappIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/.lovable/oauth/consent': {
@@ -820,39 +750,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DotlovableOauthConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/coleta/aceite/$token/': {
-      id: '/coleta/aceite/$token/'
-      path: '/coleta/aceite/$token'
-      fullPath: '/coleta/aceite/$token/'
-      preLoaderRoute: typeof ColetaAceiteTokenIndexRouteImport
+    '/.mcp/invoke-tool/$tool': {
+      id: '/.mcp/invoke-tool/$tool'
+      path: '/.mcp/invoke-tool/$tool'
+      fullPath: '/.mcp/invoke-tool/$tool'
+      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/lovable/email/auth/webhook': {
-      id: '/lovable/email/auth/webhook'
-      path: '/lovable/email/auth/webhook'
-      fullPath: '/lovable/email/auth/webhook'
-      preLoaderRoute: typeof LovableEmailAuthWebhookRouteImport
+    '/api/public/coleta': {
+      id: '/api/public/coleta'
+      path: '/api/public/coleta'
+      fullPath: '/api/public/coleta'
+      preLoaderRoute: typeof ApiPublicColetaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/lovable/email/auth/preview': {
-      id: '/lovable/email/auth/preview'
-      path: '/lovable/email/auth/preview'
-      fullPath: '/lovable/email/auth/preview'
-      preLoaderRoute: typeof LovableEmailAuthPreviewRouteImport
+    '/api/public/sucata-reenvio': {
+      id: '/api/public/sucata-reenvio'
+      path: '/api/public/sucata-reenvio'
+      fullPath: '/api/public/sucata-reenvio'
+      preLoaderRoute: typeof ApiPublicSucataReenvioRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/coleta/aceite/$token/valor': {
-      id: '/coleta/aceite/$token/valor'
-      path: '/coleta/aceite/$token/valor'
-      fullPath: '/coleta/aceite/$token/valor'
-      preLoaderRoute: typeof ColetaAceiteTokenValorRouteImport
+    '/api/public/varredura-distnsu': {
+      id: '/api/public/varredura-distnsu'
+      path: '/api/public/varredura-distnsu'
+      fullPath: '/api/public/varredura-distnsu'
+      preLoaderRoute: typeof ApiPublicVarreduraDistnsuRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/coleta/aceite/$token/recibo': {
-      id: '/coleta/aceite/$token/recibo'
-      path: '/coleta/aceite/$token/recibo'
-      fullPath: '/coleta/aceite/$token/recibo'
-      preLoaderRoute: typeof ColetaAceiteTokenReciboRouteImport
+    '/sucata/$id/': {
+      id: '/sucata/$id/'
+      path: '/sucata/$id'
+      fullPath: '/sucata/$id/'
+      preLoaderRoute: typeof SucataIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sucata/$id/conferencia': {
+      id: '/sucata/$id/conferencia'
+      path: '/sucata/$id/conferencia'
+      fullPath: '/sucata/$id/conferencia'
+      preLoaderRoute: typeof SucataIdConferenciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sucata/$id/evidencias': {
+      id: '/sucata/$id/evidencias'
+      path: '/sucata/$id/evidencias'
+      fullPath: '/sucata/$id/evidencias'
+      preLoaderRoute: typeof SucataIdEvidenciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sucata/$id/nfa': {
+      id: '/sucata/$id/nfa'
+      path: '/sucata/$id/nfa'
+      fullPath: '/sucata/$id/nfa'
+      preLoaderRoute: typeof SucataIdNfaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sucata/$id/notificar': {
+      id: '/sucata/$id/notificar'
+      path: '/sucata/$id/notificar'
+      fullPath: '/sucata/$id/notificar'
+      preLoaderRoute: typeof SucataIdNotificarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sucata/$id/relatorio': {
+      id: '/sucata/$id/relatorio'
+      path: '/sucata/$id/relatorio'
+      fullPath: '/sucata/$id/relatorio'
+      preLoaderRoute: typeof SucataIdRelatorioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/whatsapp/meta-webhook': {
+      id: '/api/public/whatsapp/meta-webhook'
+      path: '/api/public/whatsapp/meta-webhook'
+      fullPath: '/api/public/whatsapp/meta-webhook'
+      preLoaderRoute: typeof ApiPublicWhatsappMetaWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/whatsapp/webhook': {
@@ -862,11 +834,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicWhatsappWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/whatsapp/meta-webhook': {
-      id: '/api/public/whatsapp/meta-webhook'
-      path: '/api/public/whatsapp/meta-webhook'
-      fullPath: '/api/public/whatsapp/meta-webhook'
-      preLoaderRoute: typeof ApiPublicWhatsappMetaWebhookRouteImport
+    '/coleta/aceite/$token/': {
+      id: '/coleta/aceite/$token/'
+      path: '/coleta/aceite/$token'
+      fullPath: '/coleta/aceite/$token/'
+      preLoaderRoute: typeof ColetaAceiteTokenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coleta/aceite/$token/recibo': {
+      id: '/coleta/aceite/$token/recibo'
+      path: '/coleta/aceite/$token/recibo'
+      fullPath: '/coleta/aceite/$token/recibo'
+      preLoaderRoute: typeof ColetaAceiteTokenReciboRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coleta/aceite/$token/valor': {
+      id: '/coleta/aceite/$token/valor'
+      path: '/coleta/aceite/$token/valor'
+      fullPath: '/coleta/aceite/$token/valor'
+      preLoaderRoute: typeof ColetaAceiteTokenValorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/auth/preview': {
+      id: '/lovable/email/auth/preview'
+      path: '/lovable/email/auth/preview'
+      fullPath: '/lovable/email/auth/preview'
+      preLoaderRoute: typeof LovableEmailAuthPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/auth/webhook': {
+      id: '/lovable/email/auth/webhook'
+      path: '/lovable/email/auth/webhook'
+      fullPath: '/lovable/email/auth/webhook'
+      preLoaderRoute: typeof LovableEmailAuthWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
