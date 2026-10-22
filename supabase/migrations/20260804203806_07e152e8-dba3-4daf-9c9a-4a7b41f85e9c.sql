@@ -1,0 +1,2 @@
+ALTER TABLE public.pesagens ADD COLUMN IF NOT EXISTS dados_adicionais_nf text;
+COMMENT ON COLUMN public.pesagens.dados_adicionais_nf IS 'Conteúdo do campo DADOS ADICIONAIS / INFORMAÇÕES COMPLEMENTARES extraído via OCR da nota fiscal.';

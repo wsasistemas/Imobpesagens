@@ -1,0 +1,51 @@
+secao,item,detalhe
+api_schemas_expostos,authenticator,sem lista gravada no banco: vale a do painel (Integrations › Data API)
+auth_users,total,7
+auth_users,wsasistemas.ia@gmail.com,existe
+extensoes,pg_cron,1.6.4
+extensoes,pgcrypto,1.3
+extensoes,supabase_vault,0.3.1
+funcoes_acessos,e_proprietario,p_usuario uuid
+funcoes_acessos,eu_posso,p_app text
+funcoes_acessos,exigir_super_admin,
+funcoes_acessos,pode_acessar,"p_usuario uuid, p_app text"
+funcoes_acessos,provisionar,"p_app text, p_usuario uuid"
+funcoes_acessos,schema_de,p_app text
+funcoes_acessos,sou_super_admin,
+funcoes_acessos,tem_cadastro,"p_app text, p_usuario uuid"
+gatilhos_auth_users,on_auth_user_created,public.handle_new_auth_user
+schema_imobpesagens,existe?,não (ok)
+schemas,acessos,3 tabelas
+schemas,auth,27 tabelas
+schemas,cron,2 tabelas
+schemas,educa_financas,0 tabelas
+schemas,extensions,0 tabelas
+schemas,graphql,0 tabelas
+schemas,graphql_public,0 tabelas
+schemas,imobdoces,15 tabelas
+schemas,imobdoces_modelo,30 tabelas
+schemas,imobeducacional,31 tabelas
+schemas,imobenviomassa,33 tabelas
+schemas,openwa,0 tabelas
+schemas,pgbouncer,0 tabelas
+schemas,public,47 tabelas
+schemas,realtime,10 tabelas
+schemas,storage,8 tabelas
+schemas,supabase_migrations,1 tabelas
+schemas,suprimentos,40 tabelas
+schemas,vault,1 tabelas
+storage_buckets,imobenviomassa-regua,privado
+storage_buckets,loja,privado
+storage_buckets,suprimentos-cotacao-anexos,privado
+storage_buckets,suprimentos-email-assets,público
+storage_buckets,suprimentos-fornecedor-docs,privado
+storage_buckets,suprimentos-quadro-anexos,privado
+storage_buckets,whatsapp-midia,privado
+storage_policies,Equipe da loja le a midia do WhatsApp,SELECT ((bucket_id = 'whatsapp-midia'::text) AND ( SELECT imobdoces.membro_da_loja((storage.foldername(objects.name))[1]) AS me
+storage_policies,Lojista gerencia arquivos da sua loja,ALL ((bucket_id = 'loja'::text) AND ((storage.foldername(name))[1] = (( SELECT auth.uid() AS uid))::text))
+storage_policies,suprimentos_ficha_enviar,"INSERT "
+storage_policies,suprimentos_ficha_ler,"SELECT ((bucket_id = 'suprimentos-fornecedor-docs'::text) AND suprimentos.pasta_ficha_valida((storage.foldername(name))[1], (st"
+storage_policies,suprimentos_tenant_alterar,"UPDATE ((bucket_id = ANY (ARRAY['suprimentos-cotacao-anexos'::text, 'suprimentos-quadro-anexos'::text, 'suprimentos-fornecedor-"
+storage_policies,suprimentos_tenant_apagar,"DELETE ((bucket_id = ANY (ARRAY['suprimentos-cotacao-anexos'::text, 'suprimentos-quadro-anexos'::text, 'suprimentos-fornecedor-"
+storage_policies,suprimentos_tenant_gravar,"INSERT "
+storage_policies,suprimentos_tenant_ler,"SELECT ((bucket_id = ANY (ARRAY['suprimentos-cotacao-anexos'::text, 'suprimentos-quadro-anexos'::text, 'suprimentos-fornecedor-"

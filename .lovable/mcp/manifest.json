@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "sdk_version": "0.25.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://nhlnocvoamfrubgzfuea.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "portal-pesagem-mcp",
+      "version": "0.1.0",
+      "title": "Portal de Pesagem — Calper"
+    },
+    "tools": [
+      {
+        "name": "listar_obras",
+        "title": "Listar obras",
+        "description": "Lista as obras ativas às quais o usuário conectado tem acesso no Portal de Pesagem.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "listar_pesagens",
+        "title": "Listar pesagens",
+        "description": "Lista registros de pesagem (entrada/saída) com filtros opcionais por obra, placa, nota fiscal, contratante, status e período.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "obra_id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "ID da obra."
+            },
+            "placa": {
+              "type": "string",
+              "description": "Placa do caminhão (busca parcial)."
+            },
+            "numero_nota": {
+              "type": "string",
+              "description": "Número da nota fiscal (busca parcial)."
+            },
+            "contratante": {
+              "type": "string",
+              "description": "Nome do contratante (busca parcial)."
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "aguardando_saida",
+                "aguardando_saida_ocorrencia",
+                "concluida",
+                "recusada"
+              ],
+              "description": "Status do registro."
+            },
+            "desde": {
+              "type": "string",
+              "description": "Data inicial ISO (created_at >=)."
+            },
+            "ate": {
+              "type": "string",
+              "description": "Data final ISO (created_at <=)."
+            },
+            "limite": {
+              "type": "integer",
+              "description": "Máximo de registros (padrão 50, teto 200)."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "obter_pesagem",
+        "title": "Detalhar pesagem",
+        "description": "Retorna todos os dados de um registro de pesagem, incluindo itens da nota fiscal, ocorrências de entrada/saída e evidências anexadas.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "ID do registro de pesagem."
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "resumo_conferencia",
+        "title": "Resumo de conferência (NF × aferido)",
+        "description": "Agrega, por contratante/fornecedor, o peso aferido na balança contra o peso declarado na nota fiscal em um período, retornando diferenças em kg e %.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "obra_id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "ID da obra."
+            },
+            "desde": {
+              "type": "string",
+              "description": "Data inicial ISO."
+            },
+            "ate": {
+              "type": "string",
+              "description": "Data final ISO."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}

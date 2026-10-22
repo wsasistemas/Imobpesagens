@@ -1,0 +1,1 @@
+ALTER TABLE public.whatsapp_config ADD COLUMN IF NOT EXISTS alerta_template_id text;

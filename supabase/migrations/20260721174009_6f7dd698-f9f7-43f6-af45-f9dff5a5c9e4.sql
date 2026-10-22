@@ -1,0 +1,1 @@
+ALTER TABLE public.pesagens ADD COLUMN IF NOT EXISTS saida_por uuid REFERENCES auth.users(id);

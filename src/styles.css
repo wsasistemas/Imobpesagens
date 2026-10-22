@@ -1,0 +1,371 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design system do Imobenviomassa (22/10/2026), copiado token a token de Imobenviomassa/src/styles.css:
+ * azul WSA + abóbora, fundo coral bem claro, sidebar clara, tema escuro marinho (src/lib/tema.ts).
+ * Fonte: Inter 400–800 + IBM Plex Mono. Ícones coloridos em src/components/icones.
+ */
+
+@theme inline {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-soft: var(--primary-soft);
+  --color-abobora: var(--abobora);
+  --color-abobora-soft: var(--abobora-soft);
+  --color-abobora-dark: var(--abobora-dark);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-dimmer: var(--dimmer);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-soft: var(--info-soft);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-primary-hover: var(--primary-dark);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  color-scheme: light;
+
+  /* Fundo coral bem claro (coral da logo WSA, 19/10/2026); cartões continuam brancos */
+  --background: oklch(0.972 0.016 40);
+  --foreground: oklch(0.24 0.03 255);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.03 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.03 255);
+
+  /* Primária — azul da logo WSA, em tom ameno (19/10/2026; antes framboesa do ImobDoces) */
+  --primary: oklch(0.55 0.11 250);
+  --primary-foreground: oklch(0.99 0.005 250);
+  --primary-dark: oklch(0.46 0.1 252);
+  --primary-soft: oklch(0.95 0.022 250);
+  /* Destaque — abóbora clarinho (laranja da logo, suave): mistura alegre com o azul no menu e nos realces */
+  --abobora: oklch(0.8 0.11 62);
+  --abobora-soft: oklch(0.965 0.032 68);
+  --abobora-dark: oklch(0.5 0.11 50);
+
+  --secondary: oklch(0.955 0.016 40);
+  --secondary-foreground: oklch(0.3 0.03 255);
+
+  --muted: oklch(0.955 0.016 40);
+  --muted-foreground: oklch(0.5 0.025 255);
+  --dimmer: oklch(0.66 0.02 255);
+
+  --accent: oklch(0.965 0.032 68);
+  --accent-foreground: oklch(0.3 0.03 255);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0.01 60);
+
+  /* Estados (selos, KPIs, alertas) */
+  --success: oklch(0.52 0.12 150);
+  --success-foreground: oklch(0.99 0.01 60);
+  --success-soft: oklch(0.95 0.04 150);
+  --warning: oklch(0.58 0.13 65);
+  --warning-foreground: oklch(0.99 0.01 60);
+  --warning-soft: oklch(0.96 0.05 80);
+  --info: oklch(0.52 0.09 225);
+  --info-foreground: oklch(0.99 0.01 60);
+  --info-soft: oklch(0.95 0.025 225);
+
+  --border: oklch(0.905 0.02 40);
+  --border-strong: oklch(0.85 0.022 40);
+  --input: oklch(0.85 0.022 40);
+  --ring: oklch(0.55 0.11 250);
+
+  --chart-1: oklch(0.55 0.11 250);
+  --chart-2: oklch(0.72 0.12 60);
+  --chart-3: oklch(0.62 0.09 180);
+  --chart-4: oklch(0.4 0.07 260);
+  --chart-5: oklch(0.68 0.12 35);
+
+  /* Sidebar clara; item ativo no azul ameno da logo WSA */
+  --sidebar: oklch(0.958 0.022 40);
+  --sidebar-foreground: oklch(0.45 0.03 255);
+  --sidebar-primary: oklch(0.55 0.11 250);
+  --sidebar-primary-foreground: oklch(0.99 0.005 250);
+  --sidebar-accent: oklch(0.93 0.048 62);
+  --sidebar-accent-foreground: oklch(0.24 0.03 255);
+  --sidebar-border: oklch(0.9 0.022 40);
+  --sidebar-ring: oklch(0.55 0.11 250);
+
+  /* Reprodução impressa da Nota Fiscal Avulsa do RJ (documento oficial: não segue o tema) */
+  --nfa-paper: #FFFFFF;
+  --nfa-ink: #050505;
+  --nfa-line: #222222;
+  --nfa-label: #0000EE;
+  --nfa-muted: #555555;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.19 0.02 255);
+  --foreground: oklch(0.94 0.01 250);
+  --card: oklch(0.23 0.025 255);
+  --card-foreground: oklch(0.94 0.01 250);
+  --popover: oklch(0.23 0.025 255);
+  --popover-foreground: oklch(0.94 0.01 250);
+
+  --primary: oklch(0.64 0.11 250);
+  --primary-foreground: oklch(0.99 0.005 250);
+  --primary-dark: oklch(0.72 0.1 250);
+  --primary-soft: oklch(0.3 0.05 250);
+  --abobora: oklch(0.78 0.11 62);
+  --abobora-soft: oklch(0.31 0.05 60);
+  --abobora-dark: oklch(0.86 0.09 65);
+
+  --secondary: oklch(0.27 0.025 255);
+  --secondary-foreground: oklch(0.92 0.01 250);
+  --muted: oklch(0.27 0.025 255);
+  --muted-foreground: oklch(0.72 0.02 255);
+  --dimmer: oklch(0.58 0.02 255);
+  --accent: oklch(0.3 0.045 60);
+  --accent-foreground: oklch(0.95 0.01 250);
+
+  --destructive: oklch(0.66 0.19 25);
+  --destructive-foreground: oklch(0.99 0.01 60);
+  --success: oklch(0.72 0.13 150);
+  --success-foreground: oklch(0.18 0.02 150);
+  --success-soft: oklch(0.3 0.05 150);
+  --warning: oklch(0.78 0.13 75);
+  --warning-foreground: oklch(0.2 0.03 75);
+  --warning-soft: oklch(0.32 0.05 75);
+  --info: oklch(0.72 0.09 225);
+  --info-foreground: oklch(0.18 0.02 225);
+  --info-soft: oklch(0.3 0.04 225);
+
+  --border: oklch(0.32 0.025 255);
+  --border-strong: oklch(0.4 0.025 255);
+  --input: oklch(0.4 0.025 255);
+  --ring: oklch(0.64 0.11 250);
+
+  --chart-1: oklch(0.66 0.11 250);
+  --chart-2: oklch(0.76 0.12 60);
+  --chart-3: oklch(0.7 0.09 180);
+  --chart-4: oklch(0.58 0.07 260);
+  --chart-5: oklch(0.72 0.12 35);
+
+  --sidebar: oklch(0.165 0.02 255);
+  --sidebar-foreground: oklch(0.76 0.02 255);
+  --sidebar-primary: oklch(0.6 0.11 250);
+  --sidebar-primary-foreground: oklch(0.99 0.005 250);
+  --sidebar-accent: oklch(0.28 0.045 60);
+  --sidebar-accent-foreground: oklch(0.95 0.01 250);
+  --sidebar-border: oklch(0.27 0.025 255);
+  --sidebar-ring: oklch(0.64 0.11 250);
+}
+.dark .shadow-card {
+  box-shadow:
+    0 1px 2px oklch(0 0 0 / 0.3),
+    0 8px 24px -14px oklch(0 0 0 / 0.6);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Sombra padrão dos cartões (levemente azulada, não cinza). */
+@utility shadow-card {
+  box-shadow:
+    0 1px 2px oklch(0.3 0.04 255 / 0.05),
+    0 8px 24px -14px oklch(0.3 0.05 255 / 0.14);
+}
+
+@utility shadow-brand {
+  box-shadow: 0 6px 16px -6px oklch(0.55 0.11 250 / 0.45);
+}
+
+.dark .shadow-brand {
+  box-shadow: 0 6px 16px -6px oklch(0 0 0 / 0.5);
+}
+
+@layer components {
+  /* Botões Premium com Destaque nas Bordas */
+  .btn-premium-amber {
+    @apply transition-all duration-300 border-2 border-warning/30 bg-transparent text-warning hover:bg-warning/10;
+  }
+  .btn-premium-amber[data-state=active] {
+    @apply border-warning bg-warning text-white shadow-lg shadow-warning/30 ring-2 ring-warning/20 scale-[1.02];
+  }
+
+  .btn-premium-success {
+    @apply transition-all duration-300 border-2 border-success/30 bg-transparent text-success hover:bg-success/10;
+  }
+  .btn-premium-success[data-state=active] {
+    @apply border-success bg-success text-white shadow-lg shadow-success/30 ring-2 ring-success/20 scale-[1.02];
+  }
+}
+
+@layer utilities {
+  /* Degradês de marca: azul WSA com abóbora no fim */
+  .brand-gradient {
+    background: linear-gradient(120deg, var(--primary-dark), var(--primary) 60%, color-mix(in oklab, var(--primary) 70%, var(--abobora)));
+  }
+
+  .brand-gradient-alt {
+    background: linear-gradient(90deg, var(--primary) 55%, var(--abobora));
+  }
+
+  .label-brand {
+    @apply text-[10px] font-bold uppercase tracking-[0.06em] text-primary;
+  }
+
+  /* Cartão de atalho (antes "metálico" cinza): cartão claro com sombra azulada */
+  .card-metal {
+    background-color: var(--card);
+    background-image: linear-gradient(135deg, var(--primary-soft) 0%, transparent 55%);
+    border: 1px solid var(--border);
+    box-shadow:
+      0 1px 2px oklch(0.3 0.04 255 / 0.05),
+      0 8px 24px -14px oklch(0.3 0.05 255 / 0.14);
+    @apply transition-all duration-150;
+  }
+  .card-metal:hover {
+    @apply -translate-y-0.5 border-primary/50;
+  }
+  .card-metal:focus-within {
+    @apply ring-2 ring-primary ring-offset-2;
+  }
+
+  /* Keyframes e animações mantidos do arquivo original */
+  @keyframes pulse-glow-green {
+    0%, 100% {
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-success) 40%, transparent);
+    }
+    50% {
+      box-shadow: 0 0 18px 3px color-mix(in oklab, var(--color-success) 25%, transparent);
+    }
+  }
+  @keyframes pulse-glow-amber {
+    0%, 100% {
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-warning) 50%, transparent);
+    }
+    50% {
+      box-shadow: 0 0 22px 5px color-mix(in oklab, var(--color-warning) 35%, transparent);
+    }
+  }
+  @keyframes soft-glow-green {
+    0%, 100% {
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-success) 18%, transparent);
+    }
+    50% {
+      box-shadow: 0 0 24px 4px color-mix(in oklab, var(--color-success) 10%, transparent);
+    }
+  }
+  @keyframes border-pulse-success {
+    0%, 100% {
+      border-color: color-mix(in oklab, var(--color-success) 25%, transparent);
+    }
+    50% {
+      border-color: color-mix(in oklab, var(--color-success) 55%, transparent);
+    }
+  }
+  .animate-pulse-glow-green {
+    animation: pulse-glow-green 2s ease-in-out infinite;
+  }
+  .animate-pulse-glow-amber {
+    animation: pulse-glow-amber 1.8s ease-in-out infinite;
+  }
+  .animate-soft-glow-green {
+    animation: soft-glow-green 3s ease-in-out infinite;
+  }
+  .animate-border-pulse-success {
+    animation: border-pulse-success 2.4s ease-in-out infinite;
+  }
+
+  @keyframes scanner-line {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  .animate-scanner-line {
+    animation: scanner-line 1.6s ease-in-out infinite;
+  }
+
+  @keyframes shimmer-bar {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+  .animate-shimmer-bar {
+    animation: shimmer-bar 1.4s linear infinite;
+  }
+
+  @keyframes highlight-fade {
+    0% { background-color: color-mix(in oklab, var(--color-warning) 35%, transparent); }
+    100% { background-color: transparent; }
+  }
+  .animate-highlight-fade {
+    animation: highlight-fade 1.8s ease-out 1;
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+  }
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+}

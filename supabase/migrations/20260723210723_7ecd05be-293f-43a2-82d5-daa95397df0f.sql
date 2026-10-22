@@ -1,0 +1,1 @@
+ALTER TYPE public.status_pesagem ADD VALUE IF NOT EXISTS 'aguardando_saida_ocorrencia';

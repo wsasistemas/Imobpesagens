@@ -1,0 +1,2 @@
+ALTER TABLE public.sucata_notificacoes DROP CONSTRAINT IF EXISTS sucata_notificacoes_tipo_check;
+ALTER TABLE public.sucata_notificacoes ADD CONSTRAINT sucata_notificacoes_tipo_check CHECK (tipo = ANY (ARRAY['ACEITE_PESO'::text, 'REENVIO_ACEITE'::text, 'CONTESTACAO_ADMIN'::text, 'ALERTA_SEM_RESPOSTA'::text, 'SOLICITACAO_NFA'::text, 'ENVIO_NFA'::text, 'AJUSTE_VALOR_NFA'::text]));
