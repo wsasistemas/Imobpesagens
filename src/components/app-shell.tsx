@@ -65,10 +65,13 @@ export function AppShell({
   );
 
   useEffect(() => {
+    // Enquanto a troca para /auth acontece, este componente ainda está na tela e já vê o endereço novo: sem esta
+    // guarda ele mandava de novo para /auth?next=/auth?next=… em ciclo (a tela piscava e o React estourava).
+    if (location.pathname.startsWith("/auth")) return;
     if (!loading && !user) {
       // Guarda o destino atual para o login devolver o usuário à tela pedida.
       const destino = `${location.pathname}${location.searchStr ?? ""}`;
-      navigate({ to: "/auth", search: { next: destino === "/" ? undefined : destino } });
+      navigate({ to: "/auth", search: { next: destino === "/" ? undefined : destino }, replace: true });
     }
   }, [user, loading, navigate, location.pathname, location.searchStr]);
 

@@ -103,7 +103,13 @@ function Conteudo() {
         </Button>
       </div>
 
-      {dados && !dados.aprovadoEm && (
+      {dados?.concluido && (
+        <div className="rounded-lg border border-info/30 bg-info-soft p-3 text-sm text-info">
+          Processo concluído: a Nota Fiscal Avulsa fica somente para consulta. A reabertura é feita pela TI.
+        </div>
+      )}
+
+      {dados && !dados.aprovadoEm && !dados.concluido && (
         <div className="rounded-lg border border-primary-dark bg-primary-soft p-3 text-sm text-primary-dark">
           Este processo ainda não foi aprovado pelo administrativo da obra. A emissão da NFA está bloqueada.
         </div>
@@ -147,7 +153,7 @@ function Conteudo() {
             <FormularioNfa
               processoId={id}
               dados={dados}
-              podeEditar={podeEmitir}
+              podeEditar={podeEmitir && !dados.concluido}
               numero={numero}
               onNumero={setNumero}
               emissao={emissao}

@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import { createFileRoute, redirect, Link } from "@tanstack/react-router";
-import { Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { AppShell, useObraAtual } from "@/components/app-shell";
@@ -116,7 +115,7 @@ function ModuleCard({ card }: { card: HomeCard }) {
 
 function HomePage() {
   const [obraId, setObraId] = useObraAtual();
-  const { user, displayName, menusPermitidos, roleLoading } = useAuth();
+  const { user, displayName, menusPermitidos } = useAuth();
 
   const welcomeName = useMemo(() => {
     const name = displayName || user?.email?.split("@")[0] || "Usuário";
@@ -129,15 +128,7 @@ function HomePage() {
   const firstRow = FIRST_ROW.filter(allowed);
   const secondRow = SECOND_ROW.filter(allowed);
 
-  if (roleLoading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
-        <Loader2 className="h-6 w-6 animate-spin text-primary" />
-        <span className="ml-2 text-sm text-muted-foreground">Carregando portal...</span>
-      </div>
-    );
-  }
-
+  // A espera dos papéis fica só no AppShell (antes havia duas telas de carga seguidas, e a tela piscava).
   return (
     <AppShell obraId={obraId} onObraChange={setObraId} menu="pesagem">
       <div className="mx-auto max-w-6xl px-4 py-6 md:px-8 md:py-8">

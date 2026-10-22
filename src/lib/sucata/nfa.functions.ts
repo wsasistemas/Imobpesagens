@@ -28,6 +28,8 @@ export type FormularioNfa = Record<string, string>;
 export type DadosNfa = {
   campos: { rotulo: string; valor: string }[];
   numero: string;
+  /** Processo concluído: só consulta (o banco recusa qualquer gravação). */
+  concluido: boolean;
   aprovadoEm: string | null;
   nfaNumero: string | null;
   nfaEmissao: string | null;
@@ -443,6 +445,8 @@ export const dadosNfa = createServerFn({ method: "POST" })
     return {
       campos: camposNfa(p),
       numero: p.numero,
+      // Processo concluído é somente leitura no banco (gatilho sucata_encerramento_trg): a tela não deixa gravar.
+      concluido: p.situacao === "CONCLUIDO",
       aprovadoEm: p.aprovado_em,
       nfaNumero: p.nfa_numero,
       nfaEmissao: p.nfa_emissao,

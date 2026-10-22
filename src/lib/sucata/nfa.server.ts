@@ -11,6 +11,7 @@ type Admin = SupabaseClient<Database>;
 export type ProcessoNfa = {
   id: string;
   numero: string;
+  situacao: string;
   placa: string;
   tara_kg: number;
   bruto_kg: number | null;
@@ -70,7 +71,7 @@ export type ProcessoNfa = {
 };
 
 export const PROCESSO_NFA_SELECT = `
-  id, numero, placa, tara_kg, bruto_kg, peso_aferido_kg, valor_total, valor_por_tonelada,
+  id, numero, situacao, placa, tara_kg, bruto_kg, peso_aferido_kg, valor_total, valor_por_tonelada,
   entrada_em, saida_em, coligada_origem, obra_id, aceite_em,
   aprovado_em, aprovacao_observacao, pagamento_valor, pagamento_data,
   pagamento_conta_divergente, pagamento_justificativa,

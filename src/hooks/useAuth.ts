@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect, useSyncExternalStore } from "react";
+import { useQuery, useQueryClient, type QueryClient } from "@tanstack/react-query";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -28,29 +28,62 @@ export type AuthState = {
 };
 
 
+// Sessão compartilhada por todos os componentes. Antes cada useAuth guardava a sua cópia e nascia "carregando":
+// depois do login, Página Inicial, moldura e menu montavam um após o outro e cada um mostrava a própria tela de
+// carga (a tela piscava várias vezes). Agora há um ouvinte só, e quem monta depois já recebe a sessão conhecida.
+let sessaoAtual: Session | null | undefined; // undefined = ainda não lida
+let clienteQuery: QueryClient | null = null;
+const ouvintes = new Set<() => void>();
+let iniciado = false;
+let ultimoUsuario: string | null | undefined;
+
+function definirSessao(sess: Session | null) {
+  sessaoAtual = sess;
+  ouvintes.forEach((avisar) => avisar());
+}
+
+function iniciarSessao() {
+  if (iniciado || typeof window === "undefined") return;
+  iniciado = true;
+  supabase.auth.onAuthStateChange((evt, sess) => {
+    const usuario = sess?.user?.id ?? null;
+    if (evt === "SIGNED_OUT") clienteQuery?.clear();
+    // O Supabase repete SIGNED_IN ao voltar para a aba: só recarrega papéis/obras se o usuário mudou.
+    if ((evt === "SIGNED_IN" && usuario !== ultimoUsuario) || evt === "USER_UPDATED") {
+      clienteQuery?.invalidateQueries({ queryKey: ["role"] });
+      clienteQuery?.invalidateQueries({ queryKey: ["menus-permitidos"] });
+      clienteQuery?.invalidateQueries({ queryKey: ["obras"] });
+      clienteQuery?.invalidateQueries({ queryKey: ["minhas-coligadas"] });
+    }
+    ultimoUsuario = usuario;
+    definirSessao(sess);
+  });
+  supabase.auth.getSession().then(({ data }) => {
+    if (ultimoUsuario === undefined) ultimoUsuario = data.session?.user?.id ?? null;
+    if (sessaoAtual === undefined) definirSessao(data.session);
+  });
+}
+
+function assinarSessao(avisar: () => void) {
+  ouvintes.add(avisar);
+  iniciarSessao();
+  return () => {
+    ouvintes.delete(avisar);
+  };
+}
+
 export function useAuth(): AuthState {
   const qc = useQueryClient();
-  const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const { data: sub } = supabase.auth.onAuthStateChange((evt, sess) => {
-      setSession(sess);
-      if (evt === "SIGNED_OUT") {
-        qc.clear();
-      }
-      if (evt === "SIGNED_IN" || evt === "USER_UPDATED") {
-        qc.invalidateQueries({ queryKey: ["role"] });
-        qc.invalidateQueries({ queryKey: ["obras"] });
-        qc.invalidateQueries({ queryKey: ["minhas-coligadas"] });
-      }
-    });
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session);
-      setLoading(false);
-    });
-    return () => sub.subscription.unsubscribe();
+    clienteQuery = qc;
   }, [qc]);
+  const sessaoLida = useSyncExternalStore(
+    assinarSessao,
+    () => sessaoAtual,
+    () => undefined,
+  );
+  const session = sessaoLida ?? null;
+  const loading = sessaoLida === undefined;
 
   const userId = session?.user?.id ?? null;
 
