@@ -369,3 +369,80 @@
     animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
   }
 }
+/* =====================================================================================================
+ * Tela de entrada (login, "Esqueceu a senha?", nova senha) — layout da entrada do imobdocerias (.mpl-*),
+ * aprovado em 22/10/2026 na opção B: mesmo layout nas cores do Portal (azul WSA + abóbora).
+ * Foto à esquerda com véu marinho, título grande e 3 destaques; formulário à direita com cantos retos.
+ * Sempre clara, mesmo com o tema escuro escolhido. Mockup: docs/mockups/login-pesagem.html.
+ * ===================================================================================================== */
+.mpl-root {
+  --mpl-bg: oklch(0.972 0.016 40);
+  --mpl-ink: oklch(0.24 0.03 255);
+  --mpl-azul: oklch(0.55 0.11 250);
+  --mpl-azul-forte: oklch(0.46 0.1 252);
+  --mpl-abobora: oklch(0.8 0.11 62);
+  --mpl-g1: oklch(0.905 0.02 40);
+  --mpl-g2: oklch(0.66 0.02 255);
+  --mpl-g3: oklch(0.5 0.025 255);
+  color-scheme: light;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  background: var(--mpl-bg);
+  color: var(--mpl-ink);
+  font-family: var(--font-sans);
+}
+.mpl-root :focus-visible { outline: 2px solid var(--mpl-azul); outline-offset: 2px; }
+.mpl-visual { position: relative; min-height: 600px; display: flex; flex-direction: column; justify-content: space-between; padding: 34px 38px; overflow: hidden; color: #fff; }
+.mpl-visual > img.mpl-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 22% 55%; filter: saturate(.9) contrast(1.05); transform: scale(1.04); transition: transform 1.2s ease; }
+.mpl-root:hover .mpl-visual > img.mpl-foto { transform: scale(1); }
+.mpl-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(0.22 0.05 255 / .78) 0%, oklch(0.25 0.06 252 / .45) 36%, oklch(0.2 0.05 255 / .85) 76%, oklch(0.2 0.05 255 / .6) 100%); }
+.mpl-visual > *:not(.mpl-foto):not(.mpl-scrim) { position: relative; z-index: 1; animation: mpl-up .6s cubic-bezier(.2,.7,.3,1) both; }
+.mpl-brand { display: flex; align-items: center; gap: 12px; }
+.mpl-mark { width: 38px; height: 38px; background: #fff; overflow: hidden; display: grid; place-items: center; }
+.mpl-mark img { width: 100%; height: 100%; object-fit: cover; }
+.mpl-brand span { text-transform: uppercase; letter-spacing: .18em; font-size: 14px; font-weight: 700; }
+.mpl-brand small { display: block; font-size: 10px; letter-spacing: .2em; opacity: .75; margin-top: 2px; }
+.mpl-tag { display: inline-block; background: var(--mpl-abobora); color: oklch(0.25 0.04 50); font-size: 12px; text-transform: uppercase; letter-spacing: .14em; font-weight: 700; padding: 7px 12px; margin-bottom: 20px; }
+.mpl-visual h1 { font-size: clamp(44px, 4.6vw, 64px); line-height: .95; font-weight: 800; letter-spacing: -.025em; margin: 0 0 18px; max-width: 13ch; color: #fff; text-wrap: balance; text-shadow: 0 2px 18px rgba(0,0,0,.45); }
+.mpl-visual p { font-size: 17px; line-height: 1.5; max-width: 40ch; margin: 0; color: rgba(255,255,255,.9); }
+.mpl-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 18px; border-top: 2px solid var(--mpl-abobora); }
+.mpl-metrics b { display: block; font-size: 28px; font-weight: 800; letter-spacing: -.01em; }
+.mpl-metrics small { font-size: 11px; text-transform: uppercase; letter-spacing: .16em; color: rgba(255,255,255,.82); }
+.mpl-panel { padding: 48px 56px; display: flex; flex-direction: column; justify-content: center; }
+.mpl-panel > div { width: 100%; max-width: 460px; }
+.mpl-panel > div > * { animation: mpl-up .6s cubic-bezier(.2,.7,.3,1) both; }
+.mpl-kicker { font-size: 12px; text-transform: uppercase; letter-spacing: .18em; color: var(--mpl-g3); font-weight: 700; margin: 0; }
+.mpl-panel h2 { font-size: clamp(38px, 3.4vw, 50px); font-weight: 800; letter-spacing: -.02em; line-height: 1; margin: 10px 0 18px; }
+.mpl-rule { height: 2px; background: oklch(0.55 0.11 250 / .35); border: 0; margin: 0; }
+.mpl-sub { margin: 16px 0 0; font-size: 15px; line-height: 1.5; color: var(--mpl-g3); }
+.mpl-form { display: flex; flex-direction: column; gap: 20px; margin-top: 26px; }
+.mpl-field { display: flex; flex-direction: column; gap: 8px; }
+.mpl-label { display: flex; align-items: center; justify-content: space-between; font-size: 12px; text-transform: uppercase; letter-spacing: .14em; font-weight: 700; }
+.mpl-toggle { background: none; border: 0; padding: 0; font: inherit; font-size: 12px; letter-spacing: .12em; font-weight: 700; color: var(--mpl-azul-forte); cursor: pointer; text-transform: uppercase; }
+.mpl-toggle:hover { color: var(--mpl-azul); }
+.mpl-input { height: 54px; border: 1px solid oklch(0.85 0.022 40); background: #fff; padding: 0 14px; font: inherit; font-size: 16px; color: var(--mpl-ink); width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
+.mpl-input:hover { border-color: var(--mpl-ink); }
+.mpl-input:focus { outline: none; border-color: var(--mpl-azul); box-shadow: 0 0 0 3px oklch(0.55 0.11 250 / .22); }
+.mpl-input::placeholder { color: var(--mpl-g2); font-size: 15px; }
+.mpl-btn { height: 56px; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; border: 0; color: #fff; background: linear-gradient(90deg, var(--mpl-azul) 60%, var(--mpl-abobora)); transition: transform .18s ease, filter .2s ease; }
+.mpl-btn:hover { transform: translateX(3px); filter: brightness(1.05); }
+.mpl-btn:disabled { opacity: .7; cursor: default; transform: none; }
+.mpl-links { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 15px; color: var(--mpl-g3); }
+.mpl-link { border: 0; background: transparent; padding: 0; color: var(--mpl-azul-forte); text-decoration: underline; text-underline-offset: 4px; font: inherit; font-weight: 600; cursor: pointer; }
+.mpl-link:hover { color: var(--mpl-azul); }
+.mpl-error { background: oklch(0.577 0.245 27.325 / .1); color: oklch(0.45 0.18 27); border-left: 3px solid oklch(0.577 0.245 27.325); padding: 12px 14px; font-size: 15px; font-weight: 600; }
+.mpl-ok { background: oklch(0.95 0.04 150); color: oklch(0.4 0.1 150); border-left: 3px solid oklch(0.52 0.12 150); padding: 12px 14px; font-size: 15px; font-weight: 600; }
+.mpl-note { font-size: 13.5px; color: var(--mpl-g3); border-top: 1px solid var(--mpl-g1); padding-top: 14px; margin-top: 30px; line-height: 1.55; }
+@keyframes mpl-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .mpl-root *, .mpl-root *::before { animation: none !important; transition: none !important; }
+}
+@media (max-width: 900px) {
+  .mpl-root { grid-template-columns: 1fr; }
+  .mpl-visual { min-height: 240px; height: 260px; padding: 20px; }
+  .mpl-visual h1 { font-size: 32px; margin-bottom: 0; }
+  .mpl-visual p, .mpl-metrics { display: none; }
+  .mpl-panel { padding: 30px 20px; }
+  .mpl-panel h2 { font-size: 36px; }
+}

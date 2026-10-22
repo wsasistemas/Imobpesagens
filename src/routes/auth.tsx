@@ -1,13 +1,11 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
-import { Eye, EyeOff, Scale, ShieldCheck, FileText, Camera, BarChart3, Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import wsaLogo from "@/assets/wsa-logo.png";
+import fotoLogin from "@/assets/login-pesagem.webp";
 import { solicitarRedefinicaoSenha } from "@/lib/redefinir-senha.functions";
 
 export const Route = createFileRoute("/auth")({
@@ -23,11 +21,11 @@ export const Route = createFileRoute("/auth")({
   component: AuthPage,
 });
 
-const BULLETS = [
-  { icon: Scale, text: "Pesagem de cargas por obra" },
-  { icon: FileText, text: "Leitura de NF-e via SEFAZ e OCR" },
-  { icon: Camera, text: "Recebimento e recusa com evidências" },
-  { icon: BarChart3, text: "Dashboards por obra" },
+// Destaques do painel esquerdo: descrevem o produto (sem números inventados).
+const DESTAQUES = [
+  { titulo: "NF-e", texto: "Leitura automática" },
+  { titulo: "Balança", texto: "Integrada" },
+  { titulo: "IA", texto: "Placa e nota" },
 ];
 
 function AuthPage() {
@@ -91,168 +89,107 @@ function AuthPage() {
     }
   };
 
+  // Layout da entrada do imobdocerias nas cores do Portal (classes .mpl-* em src/styles.css), aprovado em 22/10/2026.
   return (
-    <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
-      <div className="relative hidden brand-gradient p-10 text-white lg:flex lg:flex-col lg:justify-between overflow-hidden">
-        {/* Blueprint background effect */}
-        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
-             style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        
-        <div className="relative z-10 flex items-center gap-3">
-          <img src={wsaLogo} alt="WSA Sistemas" className="h-11 w-11 rounded-full bg-white object-contain shadow-card" />
-          <div>
-            <div className="text-sm text-white/70 font-heading tracking-wider uppercase">Portal</div>
-            <div className="font-heading font-semibold text-white">WSA Sistemas</div>
+    <div className="mpl-root">
+      <aside className="mpl-visual">
+        {/* Foto provisória (imagem do ImobPesagem do site imobsystems.com.br); trocar o arquivo pela foto em alta. */}
+        <img className="mpl-foto" src={fotoLogin} alt="Caminhão na balança rodoviária da obra" />
+        <div className="mpl-scrim" />
+
+        <div className="mpl-brand">
+          <div className="mpl-mark">
+            <img src={wsaLogo} alt="WSA Sistemas" />
           </div>
+          <span>
+            Portal de Pesagem
+            <small>WSA Sistemas</small>
+          </span>
         </div>
 
-        <div className="relative z-10 max-w-md">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3 py-1 mb-6">
-            <div className="h-1.5 w-1.5 rounded-full bg-abobora" />
-            <span className="text-[10px] font-heading font-semibold uppercase tracking-[0.2em] text-white/80">Login único WSA Sistemas</span>
-          </div>
-          <h1 className="text-5xl font-heading font-extrabold leading-tight text-white uppercase tracking-tight">Portal de Pesagem</h1>
-          <p className="mt-3 text-xl font-heading font-semibold text-abobora">WSA Sistemas</p>
-          <p className="mt-6 text-sm text-white/80 font-sans leading-relaxed">
-            Controle de pesagem rodoviária, recebimento e recusa de mercadorias por obra —
-            integrado à NF-e e à balança da portaria.
-          </p>
-          <ul className="mt-8 space-y-4">
-            {BULLETS.map((b) => (
-              <li key={b.text} className="flex items-center gap-3 text-sm text-white/90 font-sans">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 border border-white/15 text-abobora transition-transform hover:scale-110">
-                  <b.icon className="h-5 w-5" />
-                </span>
-                {b.text}
-              </li>
-            ))}
-          </ul>
+        <div>
+          <span className="mpl-tag">Pesagem de Carga Inteligente</span>
+          <h1>Controle com IA sua carga entregue</h1>
+          <p>Entrada e saída na balança, nota fiscal conferida pela SEFAZ e alerta quando o peso foge da tolerância.</p>
         </div>
 
-        <div className="relative z-10 flex items-center gap-2 text-xs text-white/50 font-sans">
-          <ShieldCheck className="h-4 w-4 text-abobora" />
-          Acesso restrito. Todas as ações são auditadas.
+        <div className="mpl-metrics">
+          {DESTAQUES.map((d) => (
+            <div key={d.titulo}>
+              <b>{d.titulo}</b>
+              <small>{d.texto}</small>
+            </div>
+          ))}
         </div>
-      </div>
+      </aside>
 
-      <div className="flex items-center justify-center bg-background p-6 lg:p-10">
-        <div className="w-full max-w-sm">
-          <div className="mb-8 lg:hidden flex items-center gap-2">
-            <img src={wsaLogo} alt="WSA Sistemas" className="h-9 w-9 rounded-full bg-card shadow-card" />
-            <div className="font-semibold">Portal de Pesagem</div>
-          </div>
+      <main className="mpl-panel">
+        <div>
+          <p className="mpl-kicker">Acesso ao portal</p>
+          <h2>{modo === "entrar" ? "Entrar" : "Esqueceu a senha?"}</h2>
+          <hr className="mpl-rule" />
 
           {modo === "entrar" ? (
-            <>
-              <h2 className="text-2xl font-semibold tracking-tight">Entrar</h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Use o e-mail e a senha da sua conta. É a mesma dos outros sistemas da WSA Sistemas.
-              </p>
-              <form onSubmit={entrar} className="mt-6 space-y-4">
-                <CampoEmail email={email} setEmail={setEmail} />
-                <CampoSenha senha={senha} setSenha={setSenha} mostrar={mostrar} setMostrar={setMostrar} />
-                <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Entrar"}
-                </Button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setPedidoEnviado(null);
-                    setModo("esqueci");
-                  }}
-                  className="block w-full text-center text-[13px] font-semibold text-primary hover:underline"
-                >
+            <form className="mpl-form" onSubmit={entrar} noValidate>
+              <div className="mpl-field">
+                <label className="mpl-label" htmlFor="mpl-email">E-mail</label>
+                <input id="mpl-email" className="mpl-input" type="email" autoComplete="email"
+                  placeholder="voce@empresa.com.br" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              </div>
+              <div className="mpl-field">
+                <label className="mpl-label" htmlFor="mpl-senha">
+                  Senha
+                  <button type="button" className="mpl-toggle" onClick={() => setMostrar((v) => !v)}>
+                    {mostrar ? "Ocultar" : "Mostrar"}
+                  </button>
+                </label>
+                <input id="mpl-senha" className="mpl-input" type={mostrar ? "text" : "password"}
+                  autoComplete="current-password" value={senha} onChange={(e) => setSenha(e.target.value)} required />
+              </div>
+              <button type="submit" className="mpl-btn" disabled={loading}>
+                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : "Entrar"}
+                <span aria-hidden="true">→</span>
+              </button>
+              <div className="mpl-links">
+                <span>Primeiro acesso? Fale com o administrador.</span>
+                <button type="button" className="mpl-link" onClick={() => { setPedidoEnviado(null); setModo("esqueci"); }}>
                   Esqueceu a senha?
                 </button>
-              </form>
-              <p className="mt-6 text-center text-xs text-muted-foreground">
-                Ainda não tem acesso? Peça ao administrador do Portal de Pesagem da sua empresa.
-              </p>
-            </>
+              </div>
+            </form>
           ) : (
             <>
-              <h2 className="text-2xl font-semibold tracking-tight">Esqueceu a senha?</h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Informe o e-mail da sua conta. Enviaremos um link para criar uma nova senha.
-              </p>
+              <p className="mpl-sub">Informe o e-mail da sua conta. Enviaremos um link para criar uma nova senha.</p>
               {pedidoEnviado ? (
-                <div className="mt-6 rounded-lg border border-success/30 bg-success-soft p-4 text-sm text-success">
-                  {pedidoEnviado}
+                <div className="mpl-form">
+                  <div className="mpl-ok">{pedidoEnviado}</div>
                 </div>
               ) : (
-                <form onSubmit={esqueci} className="mt-6 space-y-4">
-                  <CampoEmail email={email} setEmail={setEmail} />
-                  <Button type="submit" className="w-full" disabled={loading}>
-                    {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Enviar link"}
-                  </Button>
+                <form className="mpl-form" onSubmit={esqueci} noValidate>
+                  <div className="mpl-field">
+                    <label className="mpl-label" htmlFor="mpl-email-rec">E-mail</label>
+                    <input id="mpl-email-rec" className="mpl-input" type="email" autoComplete="email"
+                      placeholder="voce@empresa.com.br" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                  </div>
+                  <button type="submit" className="mpl-btn" disabled={loading}>
+                    {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : "Enviar link"}
+                    <span aria-hidden="true">→</span>
+                  </button>
                 </form>
               )}
-              <button
-                type="button"
-                onClick={() => setModo("entrar")}
-                className="mt-4 block w-full text-center text-[13px] font-semibold text-primary hover:underline"
-              >
-                Voltar para o login
-              </button>
+              <div className="mpl-links" style={{ marginTop: 20 }}>
+                <span />
+                <button type="button" className="mpl-link" onClick={() => setModo("entrar")}>Voltar para o login</button>
+              </div>
             </>
           )}
 
-          <div className="mt-10 text-center text-xs text-muted-foreground">© 2026 WSA Sistemas</div>
+          <p className="mpl-note">
+            Login único da WSA Sistemas: a mesma conta vale nos outros sistemas da sua empresa
+            (ImobSuprimentos, ImobDisparos e outros).
+          </p>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function CampoEmail({ email, setEmail }: { email: string; setEmail: (v: string) => void }) {
-  return (
-    <div className="space-y-2">
-      <Label htmlFor="email">E-mail</Label>
-      <Input
-        id="email"
-        type="email"
-        autoComplete="email"
-        placeholder="voce@empresa.com.br"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-    </div>
-  );
-}
-
-function CampoSenha({
-  senha,
-  setSenha,
-  mostrar,
-  setMostrar,
-}: {
-  senha: string;
-  setSenha: (v: string) => void;
-  mostrar: boolean;
-  setMostrar: (fn: (v: boolean) => boolean) => void;
-}) {
-  return (
-    <div className="space-y-2">
-      <Label htmlFor="senha">Senha</Label>
-      <div className="relative">
-        <Input
-          id="senha"
-          type={mostrar ? "text" : "password"}
-          autoComplete="current-password"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
-          required
-        />
-        <button
-          type="button"
-          aria-label={mostrar ? "Ocultar senha" : "Mostrar senha"}
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-muted-foreground hover:text-foreground"
-          onClick={() => setMostrar((v) => !v)}
-        >
-          {mostrar ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-        </button>
-      </div>
+      </main>
     </div>
   );
 }
